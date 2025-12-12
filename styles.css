@@ -1,0 +1,453 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #fdfcfb, #e2d1f9);
+  color: #222;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.app-header {
+  padding: 16px 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 12px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.subcopy {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* 画面Aレイアウト */
+.screen-container {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.welcome-left,
+.welcome-right {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.welcome-left {
+  flex: 1 1 40%;
+}
+
+.welcome-right {
+  flex: 1 1 50%;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.section-text {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.feature-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* フォーム */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-title {
+  font-size: 1.2rem;
+  margin: 0 0 4px;
+}
+
+.form-group,
+.form-group-inline {
+  width: 100%;
+}
+
+.form-group-inline {
+  display: flex;
+  gap: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d4d4d8;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background-color: #fafafa;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2);
+  background-color: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* タグ選択 */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-group button {
+  border-radius: 999px;
+  border: 1px solid #e4e4e7;
+  background: #f4f4f5;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tag-group button:hover {
+  background: #e0e7ff;
+  border-color: #6366f1;
+}
+
+.tag-group button.active {
+  background: #4f46e5;
+  color: #fff;
+  border-color: #4f46e5;
+}
+
+/* ラジオグループ */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.15s;
+}
+
+.primary-button.small {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.45);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+}
+
+/* 画面B：チャットビュー */
+.chat-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: calc(100vh - 120px);
+  max-height: 720px;
+}
+
+.profile-summary {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #4b5563;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-summary span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  font-size: 0.8rem;
+}
+
+.chat-area {
+  flex: 1;
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+}
+
+.chat-messages {
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+/* スクロールバー軽くカスタム */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.7);
+  border-radius: 999px;
+}
+
+/* メッセージ気泡 */
+.message-row {
+  display: flex;
+  gap: 8px;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-row.ai {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.message-bubble.user {
+  background: #4f46e5;
+  color: #fff;
+  border-bottom-right-radius: 2px;
+}
+
+.message-bubble.ai {
+  background: #f3f4ff;
+  color: #111827;
+  border-bottom-left-radius: 2px;
+}
+
+/* セクションボタン（AIの下） */
+.section-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.section-button {
+  border-radius: 999px;
+  border: 1px solid #c7d2fe;
+  background: #e0e7ff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.section-button:hover {
+  background: #c7d2fe;
+  transform: translateY(-1px);
+}
+
+/* 入力エリア */
+.chat-input-area {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.chat-input-area input {
+  flex: 1;
+}
+
+/* モーダル（画面C） */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 50;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 18px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  padding: 18px 18px 20px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-close {
+  align-self: flex-end;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.modal-title {
+  font-size: 1.1rem;
+  margin: 0 0 4px;
+}
+
+.modal-content {
+  overflow-y: auto;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* カードリスト */
+.card {
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  background: #f9fafb;
+}
+
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #4b5563;
+}
+
+.card-meta {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.card-button {
+  display: inline-flex;
+  border-radius: 999px;
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background: #4f46e5;
+  color: #fff;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .screen-container {
+    flex-direction: column;
+  }
+
+  .chat-layout {
+    height: auto;
+    max-height: none;
+  }
+
+  .chat-area {
+    min-height: 300px;
+  }
+}
