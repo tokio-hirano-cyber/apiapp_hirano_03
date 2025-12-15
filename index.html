@@ -1,165 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>PETPACO AI Concierge</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>FX</title>
 </head>
-<body>
-  <div class="app">
-    <!-- 共通ヘッダー -->
-    <!-- <header class="app-header">
-      <div class="logo">PETPACO AI Concierge</div>
-      <div class="subcopy">あなたの愛犬の “専属コンシェルジュ”</div>
-    </header> -->
 
-    <main class="app-main">
-      <!-- 画面A：ウェルカム + プロフィール入力 -->
-      <section id="screen-welcome" class="screen active">
-        <div class="screen-container">
-          <!-- 左：説明エリア -->
-          <div class="welcome-left">
-            <h2 class="section-title">ようこそ、PAPICO AI へ</h2>
-           
-            <img src="./ccaeb816a834caa0c2528958116368ce.png" alt="">
-            
-          </div>
-
-          <!-- 右：プロフィールフォーム -->
-          <div class="welcome-right">
-            <form id="profile-form" class="profile-form">
-              <h2 class="form-title">愛犬プロフィール</h2>
-               <p class="section-text">
-              愛犬のプロフィールをもとに、<br>
-              ケア・ホテル・ファッションまで、<br>
-              あなたとわんちゃんに合った提案をお届けします。
-            </p>
-
-              <div class="form-group">
-                <label for="dog-name">名前</label>
-                <input id="dog-name" name="dogName" type="text" placeholder="きなこ など" required>
-              </div>
-
-              <div class="form-group">
-                <label for="dog-breed">犬種</label>
-                <input id="dog-breed" name="dogBreed" type="text" placeholder="柴犬 / トイプードル など" required>
-              </div>
-
-              <div class="form-group-inline">
-                <div class="form-group">
-                  <label for="dog-age">年齢</label>
-                  <input id="dog-age" name="dogAge" type="number" min="0" step="0.5" placeholder="3">
-                </div>
-                <div class="form-group">
-                  <label for="dog-weight">体重 (kg)</label>
-                  <input id="dog-weight" name="dogWeight" type="number" min="0" step="0.1" placeholder="8.0">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label>性格（近いものを選択）</label>
-                <div class="tag-group" id="personality-tags">
-                  <button type="button" data-value="慎重">慎重</button>
-                  <button type="button" data-value="活発">活発</button>
-                  <button type="button" data-value="甘えん坊">甘えん坊</button>
-                  <button type="button" data-value="マイペース">マイペース</button>
-                  <button type="button" data-value="フレンドリー">フレンドリー</button>
-                </div>
-                <input type="hidden" id="dog-personality" name="dogPersonality">
-              </div>
-
-              <div class="form-group">
-                <label for="living-env">生活環境（任意）</label>
-                <textarea id="living-env" name="livingEnv" rows="2" placeholder="共働き / 日中は留守がち / マンション暮らし など"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label>相談カテゴリ</label>
-                <div class="radio-group">
-                  <label>
-                    <input type="radio" name="category" value="ケア" checked>
-                    ケア
-                  </label>
-                  <label>
-                    <input type="radio" name="category" value="ホテル">
-                    ホテル
-                  </label>
-                  <label>
-                    <input type="radio" name="category" value="ファッション">
-                    ファッション
-                  </label>
-                  <label>
-                    <input type="radio" name="category" value="全部">
-                    まとめて相談
-                  </label>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="first-question">相談内容（ざっくりでOK）</label>
-                <textarea id="first-question" name="firstQuestion" rows="3"
-                  placeholder="例）共働きで日中留守がちなので、ストレスケアと安心して預けられるホテルを知りたいです。"></textarea>
-              </div>
-
-              <button type="submit" class="primary-button">
-                PAPICOに相談する
-              </button>
-              
-            <ul class="feature-list">
-              <li>毎日の過ごし方まで含めたケア提案</li>
-              <li>性格や体格に合ったペットホテルの提案</li>
-              <li>ライフスタイルに合わせたファッション提案</li>
-            </ul>
-            </form>
-          </div>
+<body class="min-h-screen grid place-items-center bg-slate-950 text-slate-100">
+    <div class="w-full max-w-md p-6 rounded-2xl border border-white/10 bg-white/5 space-y-3">
+        <div class="text-lg font-semibold">為替換算APP</div>
+        <div class="flex gap-2"><input id=a type=number value=100
+                class="w-32 px-3 py-2 rounded-xl bg-black/30 border border-white/10">
+            <input id=f value=USD class="w-20 px-3 py-2 rounded-xl bg-black/30 border border-white/10 uppercase">
+            <input id=t value=JPY class="w-20 px-3 py-2 rounded-xl bg-black/30 border border-white/10 uppercase">
+            <button id=b class="ml-auto px-3 py-2 rounded-xl bg-blue-600">換算</button>
         </div>
-      </section>
-
-      <!-- 画面B：チャット　ビュー -->
-      <section id="screen-chat" class="screen">
-        <div class="chat-layout">
-          <!-- プロフィールサマリ -->
-          <div class="profile-summary" id="profile-summary">
-            <!-- JSで埋め込む -->
-          </div>
-
-          <!-- チャットエリア -->
-          <div class="chat-area" id="chat-area">
-            <div class="chat-messages" id="chat-messages">
-              <!-- メッセージがここに追加される -->
-            </div>
-          </div>
-
-          <!-- 入力エリア -->
-          <form id="chat-form" class="chat-input-area">
-            <input
-              id="chat-input"
-              type="text"
-              placeholder="AIに追加で質問してみる..."
-              autocomplete="off"
-              required
-            />
-            <button type="submit" class="primary-button small">
-              質問する
-            </button>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <!-- 画面C：詳細モーダル -->
-    <div id="modal-overlay" class="modal-overlay hidden">
-      <div class="modal">
-        <button id="modal-close" class="modal-close" aria-label="閉じる">×</button>
-        <h2 id="modal-title" class="modal-title">詳細</h2>
-        <div id="modal-content" class="modal-content">
-          <!-- カードリストをJSで生成 -->
-        </div>
-      </div>
+        <div id=o class="text-sm text-slate-300">---</div>
     </div>
-  </div>
-
-  <script src="app.js"></script>
+    <script>
+        b.onclick = async () => {
+            let A = +a.value || 0, F = f.value.trim().toUpperCase(), T = t.value.trim().toUpperCase();
+            o.textContent = "..."; let r = await fetch(`https://api.frankfurter.app/latest?amount=${A}&from=${F}&to=${T}`).then(x => x.json()).catch(() => null);
+            o.textContent = r?.rates?.[T] != null ? `${A} ${F} → ${r.rates[T]} ${T}（${r.date}）` : "取得失敗（通貨コード/ネット確認）";
+        };
+    </script>
 </body>
+
 </html>
